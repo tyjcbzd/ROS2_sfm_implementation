@@ -2,6 +2,19 @@
 
 This repo is about how to transfer pedestrain plugin[1] in ROS2 humble. 
 
+I am a beginner who just started to learn ROS. The video I learned about ROS2 comes from fishros.
+(BiliBili 《ROS 2机器人开发从入门到实践》, Link -> https://space.bilibili.com/1940177928/lists/3565488?type=season).
+Through this video, I learned about robot simulation with Gazebo. 
+Next, when I tried to add a moving pedestrian to the Gazebo environment, the following problems occurred when using the original code from ![gazebo_sfm_plugin]{https://github.com/robotics-upo/gazebo_sfm_plugin}:
+- Pedestrians are invisible sometimes
+- Pedestrians pass through the model (through walls or other static obstacles)
+
+And below is how to solve the problem. (The solution is helped by other technology enthusiasts, big thanks! And I want to share the solution)
+
+I prepare a demo, and you can download and run it. And You can insert the moving pedestrain plugin in your own project.
+
+## Implementation detail
+
 Insert the following code into your .world file
 
 ```xml
@@ -64,7 +77,7 @@ Insert the following code into your .world file
 </actor>
 ```
 
-Parameters setting for pedestrain:
+Parameters settings for pedestrain:
 - update_rate: Update frequency.
 - pose: Initial position.
 - velocity: Pedestrian walking speed.
