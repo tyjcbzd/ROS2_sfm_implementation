@@ -2,19 +2,44 @@
 
 This repo is about how to transfer pedestrain plugin[1] in ROS2 humble. 
 
-I am a beginner who just started to learn ROS. The video I learned about ROS2 comes from fishros.
-(BiliBili 《ROS 2机器人开发从入门到实践》, Link -> https://space.bilibili.com/1940177928/lists/3565488?type=season).
+I am a beginner who just started to learn ROS2. The video I learned about ROS2 comes from fishros.
+[BiliBili 《ROS 2机器人开发从入门到实践》](https://space.bilibili.com/1940177928/lists/3565488?type=season).
 Through this video, I learned about robot simulation with Gazebo. 
-Next, when I tried to add a moving pedestrian to the Gazebo environment, the following problems occurred when using the original code from ![gazebo_sfm_plugin]{https://github.com/robotics-upo/gazebo_sfm_plugin}:
+
+Next, when I tried to add a moving pedestrian to the Gazebo environment, the following problems occurred when using the original code from [gazebo_sfm_plugin](https://github.com/robotics-upo/gazebo_sfm_plugin):
 - Pedestrians are invisible sometimes
 - Pedestrians pass through the model (through walls or other static obstacles)
 
-And below is how to solve the problem. (The solution is helped by other technology enthusiasts, big thanks! And I want to share the solution)
+And below is how to solve the problem. 
 
-I prepare a demo, and you can download and run it. And You can insert the moving pedestrain plugin in your own project.
+# Demo 
+First, I prepare a demo, and you can download and run it. And You can also insert the plugin in your own project in `.world` file(Shown below in `Plugin detail`).
+
+## How to run?
+
+1. :open_file_folder: Clone the repo.
+```
+git clone https://github.com/tyjcbzd/ROS2_sfm_implementation.git
+```
+2. :hammer_and_pick: Build
+```
+colcon build (--packages-select gazebo_sfm_plugin)
+```
+
+3. :running_man: Run it!
+```
+. install/setup.bash
+
+ros2 launch gazebo_sfm_plugin gazebo_demo.launch.py
+```
+
+## Demo visualization
+![Image 1](imgs/demo_1.jpg)
+
+![Image 2](imgs/demo_2.jpg)
 
 
-## Implementation detail
+## Plugin detail
 
 Insert the following code into your .world file
 
@@ -92,32 +117,7 @@ Parameters settings for pedestrain:
   - goal_point_3: The pedestrian will move to this position
   - ...
 
-## How to run?
-1.Clone the repo.
-```
-git clone https://github.com/tyjcbzd/ROS2_sfm_implementation.git
-```
-2. Build plugin
-```
-colcon build (--packages-select gazebo_sfm_plugin)
-```
 
-3. Run it!
-```
-. install/setup.bash
-
-ros2 launch gazebo_sfm_plugin gazebo_demo.launch.py
-```
-
-
-## Demo visualization
-![Image 1](imgs/demo_1.jpg)
-
-
-![Image 2](imgs/demo_2.jpg)
-
-
-
-Reference:
-[1] https://github.com/robotics-upo/gazebo_sfm_plugin
-[2] https://github.com/ai-winter/ros_motion_planning
+Big thanks to following repos:
+- [1] https://github.com/robotics-upo/gazebo_sfm_plugin
+- [2] https://github.com/ai-winter/ros_motion_planning
