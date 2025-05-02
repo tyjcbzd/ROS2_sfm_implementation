@@ -95,7 +95,7 @@ Parameters settings for pedestrain:
 ## How to run?
 1.Clone the repo.
 ```
-git clone 
+git clone https://github.com/tyjcbzd/ROS2_sfm_implementation.git
 ```
 2. Build plugin
 ```
