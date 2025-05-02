@@ -13,6 +13,7 @@ And below is how to solve the problem. (The solution is helped by other technolo
 
 I prepare a demo, and you can download and run it. And You can insert the moving pedestrain plugin in your own project.
 
+
 ## Implementation detail
 
 Insert the following code into your .world file
@@ -91,9 +92,32 @@ Parameters settings for pedestrain:
   - goal_point_3: The pedestrian will move to this position
   - ...
 
+## How to run?
+1.Clone the repo.
+```
+git clone 
+```
+2. Build plugin
+```
+colcon build (--packages-select gazebo_sfm_plugin)
+```
 
+3. Run it!
+```
+. install/setup.bash
+
+ros2 launch gazebo_sfm_plugin gazebo_demo.launch.py
+```
+
+
+## Demo visualization
+![Image 1](imgs/demo_1.jpg)
+
+
+![Image 2](imgs/demo_2.jpg)
 
 
 
 Reference:
 [1] https://github.com/robotics-upo/gazebo_sfm_plugin
+[2] https://github.com/ai-winter/ros_motion_planning
